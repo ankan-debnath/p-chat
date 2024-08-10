@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');       //calls the server from any other origin
 const { default: axios } = require('axios');
 
+const PORT = 3000;
 
 const app = express();
 app.use(express.json());
@@ -21,8 +22,6 @@ app.post('/authenticate',  async (req,res)=>{
         return res.status(err.response.status).json(err.response.data);
     }
 });
-
-const PORT = 3000;
 
 app.listen(PORT, (req,res)=>{
     console.log(`Server is runnign at port`, PORT);
